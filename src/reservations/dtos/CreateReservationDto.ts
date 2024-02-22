@@ -1,9 +1,9 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty } from 'class-validator';
 
 export class CreateReservationDto {
-    startDate: Date;
-    @IsNotEmpty()
-    endDate: Date;
-    location: String;
-    numberOfGuests: number;
+  startDate: Date;
+  @IsNotEmpty()
+  endDate: Date;
+  location: string;
+  numberOfGuests: number;
 }
