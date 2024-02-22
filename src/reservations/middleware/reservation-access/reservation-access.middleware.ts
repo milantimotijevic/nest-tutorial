@@ -1,9 +1,9 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 
 @Injectable()
-export class AuthMiddleware implements NestMiddleware {
+export class ReservationAccessMiddleware implements NestMiddleware {
   use(req: any, res: any, next: () => void) {
-    console.log('yo!');
+    console.log('Reservation access granted :)')
     next();
   }
 }

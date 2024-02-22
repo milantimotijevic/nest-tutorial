@@ -1,10 +1,15 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ReservationsModule } from './reservations/reservations.module';
 import { HealthModule } from './health/health.module';
+import { AuthMiddleware } from './global-middleware/auth/auth.middleware';
 
 @Module({
   imports: [ReservationsModule, HealthModule],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(AuthMiddleware).forRoutes('');
+    }
+}
